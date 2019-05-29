@@ -14,13 +14,18 @@ import { RouterModule } from '@angular/router';
 import { appRoutes } from './routingConfig';
 import { AddbookComponent } from './books/addbook/addbook.component'; 
 import { FormsModule } from '@angular/forms';
+import { ToastrModule } from 'ngx-toastr';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
+import { ConfirmationPopoverModule } from 'angular-confirmation-popover';
+import { EditbookComponent } from './books/editbook/editbook.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     BooksComponent,
-    AddbookComponent
+    AddbookComponent,
+    EditbookComponent
   ],
   imports: [
     BrowserModule,
@@ -32,6 +37,11 @@ import { FormsModule } from '@angular/forms';
     MatButtonModule,
     MatIconModule,
     FormsModule,
+    ToastrModule.forRoot(),
+    BrowserAnimationsModule,
+    ConfirmationPopoverModule.forRoot({
+      confirmButtonType: 'danger' 
+    }),
     RouterModule.forRoot(appRoutes)
     ],
     providers: [BooksService],

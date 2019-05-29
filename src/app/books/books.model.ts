@@ -4,7 +4,7 @@ export class Books {
 	book_name:string;
 	author:string;
 	isbn:string;
-	publish_year:Date;
+	publish_year:string;
 	status:string;
 
     constructor(){

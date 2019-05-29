@@ -4,6 +4,7 @@ import { BooksComponent } from './books.component';
 import { CdkTableModule } from '@angular/cdk/table';
 import { MatTableModule } from '@angular/material';
 import { AddbookComponent } from './addbook/addbook.component';
+import { EditbookComponent } from './editbook/editbook.component';
 
 
 @NgModule({
@@ -13,6 +14,6 @@ import { AddbookComponent } from './addbook/addbook.component';
     MatTableModule
     
   ],
-  declarations: [BooksComponent,AddbookComponent]
+  declarations: [BooksComponent,AddbookComponent, EditbookComponent]
 })
 export class BooksModule { }

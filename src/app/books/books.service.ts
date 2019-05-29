@@ -16,12 +16,17 @@ public data;
 booksService(){
   return this.http.get(environment.servicesURL+'allbooks');
 }
-savedBook(Books){
-  return this.http.post(environment.servicesURL+'/addbook',Books);
+savedBook(books){
+  return this.http.post(environment.servicesURL+'/addbook',books);
 }
-deleteBook(Books){
-  return this.http.delete(environment.servicesURL+'deleteBook/'+Books.id);
+deleteBook(id:string){
+  //alert(environment.servicesURL+'deleteBook/'+id);
+  return this.http.delete(environment.servicesURL+'deleteBook/'+id);
 }
-
-  
+updateBook(books:any){
+  return this.http.put(environment.servicesURL+'updateBook',books);
+}
+getBookDetails(id:string){
+  return this.http.get(environment.servicesURL+'books/'+id);
+}
 }
