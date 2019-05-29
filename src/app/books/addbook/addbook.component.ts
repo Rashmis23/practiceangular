@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { BooksService } from '../books.service';
 import { Books } from '../books.model';
 import { FormGroup } from '@angular/forms';
+import { ToastrModule, ToastrService } from 'ngx-toastr';
 
 
 @Component({
@@ -13,15 +14,12 @@ import { FormGroup } from '@angular/forms';
 export class AddbookComponent implements OnInit {
   
 
-  constructor(public router:Router,public addbookService:BooksService) {
+  constructor(public router:Router,public addbookService:BooksService,private toastr: ToastrService) {
 
    }
    public books:Books = new Books(); 
 
-  addbook:FormGroup;
-  private book: Books;
-
-
+  
   ngOnInit():void {
     
   }
@@ -30,7 +28,9 @@ export class AddbookComponent implements OnInit {
    
     this.addbookService.savedBook(this.books).subscribe(
       (response:any) => {
-        this.router.navigateByUrl('/add');
+        this.router.navigateByUrl('');
+        this.showSuccess();
+        this. clear();
          },
       (error) => {
         console.log(error);
@@ -38,5 +38,18 @@ export class AddbookComponent implements OnInit {
       }
     )
     
+    }
+    cancel(){
+      
+    }
+    clear()
+    {
+      this.books.book_name="";
+      this.books.author="";
+      this.books.isbn="";
+      this.books.publish_year=null;
+    }
+    showSuccess() {
+      this.toastr.success('Book added succefully', 'Congrats');
     }
 }

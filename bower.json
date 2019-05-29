@@ -1,0 +1,17 @@
+{
+  "name": "y",
+  "description": "y",
+  "main": "",
+  "authors": [
+    "Sachin Vidhate <vidhatesachin@gmail.com>"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/Rashmis23/practiceangular",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

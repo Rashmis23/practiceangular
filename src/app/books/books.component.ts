@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { BooksService } from './books.service';
 import { Books } from './books.model';
+import { ToastrModule, ToastrService } from 'ngx-toastr';
+
 
 
 @Component({
@@ -14,15 +16,13 @@ export class BooksComponent implements OnInit {
   public books:Books[]=new Array();
   public dataSource;
   public displayedColumns: string[] =
-   ['id','book_name', 'author', 'isbn', 'publish_year','actionsColumn'];
+   ['id','book_name', 'author', 'isbn', 'publish_year','action'];
    public deleteId;
 
-  constructor(public router:Router,public listOfBooksService:BooksService) { }
+  constructor(public router:Router,public listOfBooksService:BooksService,private toastr: ToastrService) { }
 
-  ngOnInit() {
-   
+  ngOnInit():void {
     this.getBooks();
-    
   } 
   getBooks(){
     
@@ -39,12 +39,19 @@ export class BooksComponent implements OnInit {
     
   }
 
-  deleteBook(id: String): void {
-    id=this.deleteId;
-    this.listOfBooksService.deleteBook(this.deleteId)
-      .subscribe( data => {
-        this.getBooks();
-      })
-  }; 
+    showDelete() {
+      this.toastr.warning('Book deleted succefully', 'Deleted');
+    }
+    clickMethod(id:string) {
+      if(confirm("Are you sure to delete "+name)) {
+        this.listOfBooksService.deleteBook(id).subscribe(
+          (response:any)=> {
+           this.getBooks();
+           this.showDelete(); 
+          },
+    
+        );
+      }
+    }
 
 }
