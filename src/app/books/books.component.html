@@ -1,146 +1,118 @@
 <div class="animated fadeIn">
-    <div class="row">
-        <div class="col-lg-12">
-        <div class="card">
-            <div class=" row card-header" style="width:100%">
-                <div class="col-md-10">
-                    <span style="font-size: 34px;"> Book List</span>
-                </div>
-                <div class="col-md-2">
-                    <a class="btn btn-primary pull-right" routerLink="add" routerLinkActive="active"> Add Book </a>
-                </div>
-                
+        <div class="row">
+            <div class="col-lg-12">
+            <div class="card">
+                <div class=" row card-header" style="width:100%">
+                    <div class="col-md-10">
+                        <span style="font-size: 34px;"> Book List</span>
+                    </div>
+                    <div class="col-md-2">
+                        <a class="btn btn-primary pull-right" routerLink="add" routerLinkActive="active"> Add Book </a>
+                    </div>
                     
-            
-            </div>
-            <div class="card-body">
-            <!--  <ng-container cdkColumnDef="controlButtons">
-                <th cdk-header-cell *cdkHeaderCellDef>
-                    <a class="btn btn-sm btn-icon btn-primary mx-1" href="#/addbook"><i class="fa fa-plus"></i></a>    
-                </th>
-                </ng-container> -->
-                <!-- <button (click)=”handleClick($event)” type=”button”>Button</button> -->
-    
-            
-            
-                 <!--
-                <table class="table table-condensed table-striped" cdk-table [dataSource]="books">
-    
-                    <ng-container matColumnDef="id">
-                        <th cdk-header-cell *cdkHeaderCellDef> NO.   </th>
-                        <td cdk-cell *cdkCellDef="let element;index as i;"> {{ i+1 }} </td>
-                    </ng-container>
-    
-                    <ng-container cdkColumnDef="book_name">
-                        <th cdk-header-cell *cdkHeaderCellDef> Book Name </th>
-                        <td cdk-cell *cdkCellDef="let element"> {{element.book_name}} </td>
-                    </ng-container>
-    
-                    <ng-container cdkColumnDef="author">
-                        <th cdk-header-cell *cdkHeaderCellDef> Author </th>
-                        <td cdk-cell *cdkCellDef="let element"> {{element.author}} </td>
-                        </ng-container>
-    
-                        <ng-container cdkColumnDef="isbn">
-                            <th cdk-header-cell *cdkHeaderCellDef>ISBN </th>
-                            <td cdk-cell *cdkCellDef="let element"> {{element.isbn}} </td>
-                        </ng-container>
-    
-                        <ng-container cdkColumnDef="publish_year">
-                            <th cdk-header-cell *cdkHeaderCellDef> Publish Year </th>
-                            <td cdk-cell *cdkCellDef="let element"> {{element.publish_year}} </td>
-                            </ng-container> 
-                       
-                    <ng-container cdkColumnDef="action">
-                    <th cdk-header-cell *cdkHeaderCellDef> Action </th>
-    
-                                            
-                    <mat-header-cell *matHeaderCellDef></mat-header-cell>
-                        <mat-cell *matCellDef="let element">
-                            <button mat-raised-button color="primary" class="icon-centered-button" (click)="clickMethod(element.id)">
-                                                            <mat-icon>Delete</mat-icon>
-                                                        </button>
-                
-                  <mat-header-cell *matHeaderCellDef></mat-header-cell>
-                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal" routerLink="edit/{{element.id}}" routerLinkActive="active" class="icon-centered-button">Edit </button> 
-                                </mat-cell>
-                        
-                        </ng-container>
-                                                
-    
-                                                                                                            
-                    <tr cdk-header-row *cdkHeaderRowDef="displayedColumns"></tr>
-                    <tr cdk-row *cdkRowDef="let row; columns: displayedColumns"></tr>
-                </table>
-                -->
-
-
-
-
-
-                <table mat-table [dataSource]="books" class="mat-elevation-z8" style="width:100%">
-
-                    <!--- Note that these columns can be defined in any order.
-                          The actual rendered columns are set as a property on the row definition" -->
-                  
-                    <!-- Position Column -->
-                    <ng-container matColumnDef="id">
-                      <th mat-header-cell *matHeaderCellDef> No. </th>
-                      <td mat-cell *matCellDef="let element;index as i;"> {{i+1}} </td>
-                    </ng-container>
-                  
-                    <!-- Name Column -->
-                    <ng-container matColumnDef="book_name">
-                      <th mat-header-cell *matHeaderCellDef> Book Name </th>
-                      <td mat-cell *matCellDef="let element"> {{element.book_name}} </td>
-                    </ng-container>
-                  
-                    <!-- Weight Column -->
-                    <ng-container matColumnDef="author">
-                      <th mat-header-cell *matHeaderCellDef> Author </th>
-                      <td mat-cell *matCellDef="let element"> {{element.author}} </td>
-                    </ng-container>
-                  
-                    <!-- Symbol Column -->
-                    <ng-container matColumnDef="isbn">
-                        <th mat-header-cell *matHeaderCellDef> ISBN </th>
-                        <td mat-cell *matCellDef="let element"> {{element.isbn}} </td>
-                      </ng-container>
-                    <!-- Symbol Column -->
-                    <ng-container matColumnDef="publish_year">
-                      <th mat-header-cell *matHeaderCellDef> Publish year </th>
-                      <td mat-cell *matCellDef="let element"> {{element.publish_year}} </td>
-                    </ng-container>
-
-                    <ng-container matColumnDef="action">
-                        <th mat-header-cell *matHeaderCellDef> Action </th>
-                        <td mat-cell *matCellDef="let element"> 
-                                <button class="btn btn-sm btn-primary" (click)="clickMethod(element.id)"><i class="fa fa-trash"></i></button>
-                                &nbsp;&nbsp; 
-                                <button class="btn btn-sm btn-primary" routerLink="edit/{{element.id}}" routerLinkActive="active"><i class="fa fa-pencil"></i></button>
-    
-                        </td>
-                      </ng-container>
-                  
-                    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-                    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-                  </table>
                 </div>
-                  
-
-
-
-
-
-
-
-
-
-
-                
-
-    </div>
-    </div>
+                <div class="card-body">
+        
     
-    </div>
-    </div>
+    
+                    <table mat-table [dataSource]="books" class="mat-elevation-z8" style="width:100%">
+    
+                        <!--- Note that these columns can be defined in any order.
+                              The actual rendered columns are set as a property on the row definition" -->
+                      
+                        <!-- Position Column -->
+                        <ng-container matColumnDef="id">
+                          <th mat-header-cell *matHeaderCellDef> No. </th>
+                          <td mat-cell *matCellDef="let element;index as i;"> {{i+1}} </td>
+                        </ng-container>
+                      
+                        <!-- Name Column -->
+                        <ng-container matColumnDef="book_name">
+                          <th mat-header-cell *matHeaderCellDef> Book Name </th>
+                          <td mat-cell *matCellDef="let element"> {{element.book_name}} </td>
+                        </ng-container>
+                      
+                        <!-- Weight Column -->
+                        <ng-container matColumnDef="author">
+                          <th mat-header-cell *matHeaderCellDef> Author </th>
+                          <td mat-cell *matCellDef="let element"> {{element.author}} </td>
+                        </ng-container>
+                      
+                        <!-- Symbol Column -->
+                        <ng-container matColumnDef="isbn">
+                            <th mat-header-cell *matHeaderCellDef> ISBN </th>
+                            <td mat-cell *matCellDef="let element"> {{element.isbn}} </td>
+                          </ng-container>
+                        <!-- Symbol Column -->
+                        <ng-container matColumnDef="publish_year">
+                          <th mat-header-cell *matHeaderCellDef> Publish year </th>
+                          <td mat-cell *matCellDef="let element"> {{element.publish_year}} </td>
+                        </ng-container>
+    
+                        <ng-container matColumnDef="price">
+                                <th mat-header-cell *matHeaderCellDef>Price</th>
+                                <td mat-cell *matCellDef="let element"> {{element.price}} </td>
+                              </ng-container>
+    
+                          
+                              
+                              <!-- <button class="btn btn-outline-secondary mr-2" [popover]="myPopover" [popoverOnHover]="true">hover this button to see a popover</button> -->
+    
+                        <ng-container matColumnDef="action">
+                            <th mat-header-cell *matHeaderCellDef> Action </th>
+                            <td mat-cell *matCellDef="let element"> 
+                            
+                                    <button class="btn btn-sm btn-primary" (click)="openModal(template,element.id)"><i class="fa fa-trash"></i></button>
+                                    &nbsp;&nbsp; 
+                                    <button class="btn btn-sm btn-primary" routerLink="edit/{{element.id}}" routerLinkActive="active"><i class="fa fa-pencil"></i></button>
+                                    &nbsp;&nbsp; 
+                                    <button class="btn btn-sm btn-primary" [popover]="myPopover" [popoverOnHover]="true"><i class="fa fa-list-alt"></i></button>
+                                    <popover-content #myPopover title="Book Details" 
+                                    placement="left" [closeOnClickOutside]="true">
+    
+                                    <span style="color: #C21F39"> <label for="usr">Book Name:</label></span>{{element.book_name}}<br>
+                                    <span style="color: #C21F39"><label for="usr">Author:</label></span>{{element.author}}<br>
+                                    <span style="color: #C21F39"><label for="usr">Publish Year:</label></span>{{element.publish_year}}<br>
+                                    <span style="color: #C21F39"><label for="usr">ISBN:</label></span>{{element.isbn}}<br>
+                                    <span style="color: #C21F39"><label for="usr">Price:</label></span>{{element.price}}<br>
+                                    <span style="color: #C21F39"><label for="usr">Book Details:</label></span>{{element.book_details}}<br>
+                                            <u (click)="myPopover.hide()"></u>
+                                          </popover-content>
+                                            <ng-container matColumnDef="price">
+                          <th mat-header-cell *matHeaderCellDef> Price</th>
+                          <td mat-cell *matCellDef="let element"> {{element.price}} </td>
+                        </ng-container>
+
+                        <ng-template #template>
+                                <div class="modal-header">
+                                  <h4 class="modal-title pull-left">Confirmation</h4>
+                                  <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+                                    <span aria-hidden="true">&times;</span>
+                                  </button>
+                                </div>
+                                <div class="modal-body">
+                                 Are you sure want to delete?
+                                </div>
+                                <div class="modal-footer">
+                                        <button type="button" class="btn btn-primary" (click)="modalRef.hide()">Cancel</button>
+                                        <button type="button" class="btn btn-primary" (click)="deleteBooks()">Delete</button>
+                                      </div>
+                              </ng-template>
+    
+                        <ng-container matColumnDef="book_details">
+                                <th mat-header-cell *matHeaderCellDef> Book Details</th>
+                                <td mat-cell *matCellDef="let element"> {{element.book_details}} </td>
+                              </ng-container>
+                           
+                                </td>
+                          </ng-container>
+                      
+                        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+                      </table>
+    
+                    </div>
+                  
+        </div>
+        </div>
+    

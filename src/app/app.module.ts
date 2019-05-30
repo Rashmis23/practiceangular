@@ -19,13 +19,18 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { ConfirmationPopoverModule } from 'angular-confirmation-popover';
 import { EditbookComponent } from './books/editbook/editbook.component';
+import { ModalModule } from 'ngx-bootstrap/modal';
+import { BookdetailsComponent } from './books/bookdetails/bookdetails.component';
+import {PopoverModule} from "ngx-popover";
+
 
 @NgModule({
   declarations: [
     AppComponent,
     BooksComponent,
     AddbookComponent,
-    EditbookComponent
+    EditbookComponent,
+    BookdetailsComponent
   ],
   imports: [
     BrowserModule,
@@ -40,9 +45,11 @@ import { EditbookComponent } from './books/editbook/editbook.component';
     ToastrModule.forRoot(),
     BrowserAnimationsModule,
     ConfirmationPopoverModule.forRoot({
-      confirmButtonType: 'danger' 
-    }),
-    RouterModule.forRoot(appRoutes)
+      confirmButtonType: 'danger' ,}),
+    RouterModule.forRoot(appRoutes),
+    PopoverModule,
+    ModalModule.forRoot()
+ 
     ],
     providers: [BooksService],
   bootstrap: [AppComponent],
