@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "my-new-app": {
+    "mor-admin-ui": {
       "root": "",
       "sourceRoot": "src",
       "projectType": "application",
@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/my-new-app",
+            "outputPath": "dist/mor-admin-ui",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -26,7 +26,12 @@
               "node_modules/bootstrap/dist/css/bootstrap.min.css",
               "src/styles.css",
               "node_modules/font-awesome/scss/font-awesome.scss",
-              "node_modules/ngx-toastr/toastr.css"
+              "node_modules/ngx-toastr/toastr.css",
+              "node_modules/primeng/resources/themes/nova-light/theme.css",
+              "node_modules/primeng/resources/primeng.min.css",
+              "node_modules/primeicons/primeicons.css",
+              "node_modules/font-awesome/css/font-awesome.min.css",
+              "node_modules/primeng/resources/themes/omega/theme.css"
             ],
             "scripts": []
           },
@@ -60,18 +65,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "my-new-app:build"
+            "browserTarget": "mor-admin-ui:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "my-new-app:build:production"
+              "browserTarget": "mor-admin-ui:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "my-new-app:build"
+            "browserTarget": "mor-admin-ui:build"
           }
         },
         "test": {
@@ -105,7 +110,7 @@
         }
       }
     },
-    "my-new-app-e2e": {
+    "mor-admin-ui-e2e": {
       "root": "e2e/",
       "projectType": "application",
       "prefix": "",
@@ -114,11 +119,11 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "my-new-app:serve"
+            "devServerTarget": "mor-admin-ui:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "my-new-app:serve:production"
+              "devServerTarget": "mor-admin-ui:serve:production"
             }
           }
         },
@@ -134,5 +139,5 @@
       }
     }
   },
-  "defaultProject": "my-new-app"
+  "defaultProject": "mor-admin-ui"
 }

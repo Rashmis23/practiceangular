@@ -16,14 +16,15 @@ import { AddbookComponent } from './books/addbook/addbook.component';
 import { FormsModule } from '@angular/forms';
 import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
+import { TableModule } from 'primeng/table';
 import { ConfirmationPopoverModule } from 'angular-confirmation-popover';
 import { EditbookComponent } from './books/editbook/editbook.component';
 import { ModalModule } from 'ngx-bootstrap/modal';
 import { BookdetailsComponent } from './books/bookdetails/bookdetails.component';
 import {PopoverModule} from "ngx-popover";
-
-
+import { DataTableModule, SharedModule, DataTable } from 'primeng/primeng';
+import {MenubarModule} from 'primeng/menubar';
+import {MenuItem} from 'primeng/api';
 @NgModule({
   declarations: [
     AppComponent,
@@ -43,12 +44,15 @@ import {PopoverModule} from "ngx-popover";
     MatIconModule,
     FormsModule,
     ToastrModule.forRoot(),
+    TableModule,
+    DataTableModule,
     BrowserAnimationsModule,
     ConfirmationPopoverModule.forRoot({
       confirmButtonType: 'danger' ,}),
     RouterModule.forRoot(appRoutes),
     PopoverModule,
-    ModalModule.forRoot()
+    ModalModule.forRoot(),
+    MenubarModule
  
     ],
     providers: [BooksService],
