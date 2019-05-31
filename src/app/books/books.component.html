@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <p-menubar [model]="items">
         <div>
           
@@ -16,3 +17,89 @@
                 
         
     
+=======
+<div class="animated fadeIn">
+<div class="row">
+    <div class="col-lg-12">
+    <div class="card">
+        <div class="card-header">
+        <i class="fa fa-align"></i>
+           <h2> Book List</h2>
+        </div>
+        <!--  <ng-container cdkColumnDef="controlButtons">
+            <th cdk-header-cell *cdkHeaderCellDef>
+                <a class="btn btn-sm btn-icon btn-primary mx-1" href="#/addbook"><i class="fa fa-plus"></i></a>    
+            </th>
+            </ng-container> -->
+            <!-- <button (click)=”handleClick($event)” type=”button”>Button</button> -->
+
+        
+        <div class="card-body">
+            
+            <table class="table table-condensed table-striped" cdk-table [dataSource]="books">
+
+                <ng-container matColumnDef="id">
+                    <th cdk-header-cell *cdkHeaderCellDef> NO.   </th>
+                    <td cdk-cell *cdkCellDef="let element;index as i;"> {{ i+1 }} </td>
+                </ng-container>
+
+                <ng-container cdkColumnDef="book_name">
+                    <th cdk-header-cell *cdkHeaderCellDef> Book Name </th>
+                    <td cdk-cell *cdkCellDef="let element"> {{element.book_name}} </td>
+                </ng-container>
+
+                <ng-container cdkColumnDef="author">
+                    <th cdk-header-cell *cdkHeaderCellDef> Author </th>
+                    <td cdk-cell *cdkCellDef="let element"> {{element.author}} </td>
+                    </ng-container>
+
+                    <ng-container cdkColumnDef="isbn">
+                        <th cdk-header-cell *cdkHeaderCellDef>ISBN </th>
+                        <td cdk-cell *cdkCellDef="let element"> {{element.isbn}} </td>
+                    </ng-container>
+
+                    <ng-container cdkColumnDef="publish_year">
+                        <th cdk-header-cell *cdkHeaderCellDef> Publish Year </th>
+                        <td cdk-cell *cdkCellDef="let element"> {{element.publish_year}} </td>
+                        </ng-container>
+                    <!--  delete -->
+                    <!--      <ng-container matColumnDef="actions">
+                        <mat-header-cell *matHeaderCellDef></mat-header-cell>
+                        <mat-cell *matCellDef="let row">
+                                <button mat-icon-button matTooltip="Click to Delete" class="iconbutton" color="warn">
+                                        <mat-icon aria-label="">delete</mat-icon>
+                                        </button>
+                                        </
+                                    </mat-cell>
+                                </ng-container> -->
+                                <!--  <ng-container matColumnDef="actionsColumn">
+                                        <mat-cell *matCellDef="let element">    
+                                                <button (click)="deleteBook()">Cancel</button>
+                                            </mat-cell>
+                                        </ng-container> -->
+                                        <ng-container cdkColumnDef="action">
+                                        <th cdk-header-cell *cdkHeaderCellDef> Action </th>
+                                        <td cdk-cell *cdkCellDef="let element"> 
+                                                <button class="btn btn-success" (click)="clickMethod(element.id)"><i class="fa fa-home"></i></button>
+                                        
+  
+                                        <button class="btn btn-sm btn-primary" routerLink="edit/{{element.id}}" routerLinkActive="active" class="icon-centered-button">Edit </button>
+                                        </td>
+                    
+                    </ng-container>
+                                            
+
+                                                                                                        
+                <tr cdk-header-row *cdkHeaderRowDef="displayedColumns"></tr>
+                <tr cdk-row *cdkRowDef="let row; columns: displayedColumns"></tr>
+            </table>
+            <div class="form-actions pull-right">
+                <a class="btn btn-primary" routerLink="add" routerLinkActive="active"> Add Book </a>
+            </div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+>>>>>>> 6663706d08ec555d9cc020fe3247a5b9efd94a33

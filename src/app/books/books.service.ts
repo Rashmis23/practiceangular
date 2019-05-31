@@ -22,11 +22,21 @@ savedBook(books){
 deleteBook(id:string){
   //alert(environment.servicesURL+'deleteBook/'+id);
   return this.http.delete(environment.servicesURL+'deleteBook/'+id);
+<<<<<<< HEAD
 }
 updateBook(books:any){
   return this.http.put(environment.servicesURL+'updateBook',books);
 }
 getBookDetails(id:string){
   return this.http.get(environment.servicesURL+'books/'+id);
+=======
+}
+updateBook(books){
+  return this.http.put(environment.servicesURL+'updateBook',books);
+}
+getBookDetails(id:string){
+  return this.http.get(environment.servicesURL+'books/'+id);
+}
+>>>>>>> 6663706d08ec555d9cc020fe3247a5b9efd94a33
 }
 }

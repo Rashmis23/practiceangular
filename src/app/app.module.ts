@@ -16,6 +16,7 @@ import { AddbookComponent } from './books/addbook/addbook.component';
 import { FormsModule } from '@angular/forms';
 import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+<<<<<<< HEAD
 import { TableModule } from 'primeng/table';
 import { ConfirmationPopoverModule } from 'angular-confirmation-popover';
 import { EditbookComponent } from './books/editbook/editbook.component';
@@ -25,13 +26,22 @@ import {PopoverModule} from "ngx-popover";
 import { DataTableModule, SharedModule, DataTable } from 'primeng/primeng';
 import {MenubarModule} from 'primeng/menubar';
 import {MenuItem} from 'primeng/api';
+=======
+import { EditbookComponent } from './editbook/editbook.component';
+import { ConfirmationPopoverModule } from 'angular-confirmation-popover';
+
+>>>>>>> 6663706d08ec555d9cc020fe3247a5b9efd94a33
 @NgModule({
   declarations: [
     AppComponent,
     BooksComponent,
     AddbookComponent,
+<<<<<<< HEAD
     EditbookComponent,
     BookdetailsComponent
+=======
+    EditbookComponent
+>>>>>>> 6663706d08ec555d9cc020fe3247a5b9efd94a33
   ],
   imports: [
     BrowserModule,
@@ -44,6 +54,7 @@ import {MenuItem} from 'primeng/api';
     MatIconModule,
     FormsModule,
     ToastrModule.forRoot(),
+<<<<<<< HEAD
     TableModule,
     DataTableModule,
     BrowserAnimationsModule,
@@ -54,6 +65,13 @@ import {MenuItem} from 'primeng/api';
     ModalModule.forRoot(),
     MenubarModule
  
+=======
+    BrowserAnimationsModule,
+    ConfirmationPopoverModule.forRoot({
+      confirmButtonType: 'danger' 
+    }),
+    RouterModule.forRoot(appRoutes)
+>>>>>>> 6663706d08ec555d9cc020fe3247a5b9efd94a33
     ],
     providers: [BooksService],
   bootstrap: [AppComponent],

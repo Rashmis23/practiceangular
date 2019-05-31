@@ -2,9 +2,14 @@ import { Component, OnInit, TemplateRef, ElementRef } from '@angular/core';
 import { Router } from '@angular/router';
 import { BooksService } from './books.service';
 import { Books } from './books.model';
+<<<<<<< HEAD
 import { ToastrService } from 'ngx-toastr';
 import { MenubarModule, MenuItem } from 'primeng/primeng';
 import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
+=======
+import { ToastrModule, ToastrService } from 'ngx-toastr';
+
+>>>>>>> 6663706d08ec555d9cc020fe3247a5b9efd94a33
 
 
 @Component({
@@ -18,6 +23,7 @@ export class BooksComponent implements OnInit {
   public dataSource;
   public displayedColumns: string[] =
    ['id','book_name', 'author', 'isbn', 'publish_year','action'];
+<<<<<<< HEAD
    public selectedId;
    modalRef: BsModalRef;
   
@@ -72,6 +78,15 @@ export class BooksComponent implements OnInit {
   ];
 }
 
+=======
+   public deleteId;
+
+  constructor(public router:Router,public listOfBooksService:BooksService,private toastr: ToastrService) { }
+
+  ngOnInit():void {
+    this.getBooks();
+  } 
+>>>>>>> 6663706d08ec555d9cc020fe3247a5b9efd94a33
   getBooks(){
     
     this.listOfBooksService.booksService().subscribe(
@@ -90,22 +105,34 @@ export class BooksComponent implements OnInit {
     showDelete() {
       this.toastr.warning('Book deleted succefully', 'Deleted');
     }
+<<<<<<< HEAD
     deleteBooks(id:string) {
       
         this.listOfBooksService.deleteBook(this.selectedId).subscribe(
           (response:any)=> {
            this.getBooks();
            this.modalRef.hide()
+=======
+    clickMethod(id:string) {
+      if(confirm("Are you sure to delete "+name)) {
+        this.listOfBooksService.deleteBook(id).subscribe(
+          (response:any)=> {
+           this.getBooks();
+>>>>>>> 6663706d08ec555d9cc020fe3247a5b9efd94a33
            this.showDelete(); 
           },
     
         );
+<<<<<<< HEAD
      
     }
 
     openModal(template: TemplateRef<any>,id:String) {
       this.selectedId=id;
       this.modalRef = this.modalService.show(template);
+=======
+      }
+>>>>>>> 6663706d08ec555d9cc020fe3247a5b9efd94a33
     }
 
 }
